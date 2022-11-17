@@ -14,8 +14,13 @@ class LoadResults {
     this.errorMsg = response.errorMsg;
     this.token = response.token;
     this.id = response.id;
+<<<<<<< HEAD
     this.avgRatingContainer = document.querySelectorAll(this.widgetContainer + '.js-rmp-avg-rating, .js-rmp-results-widget--' + postID + ' .js-rmp-avg-rating');
     this.voteCountContainer = document.querySelectorAll(this.widgetContainer + '.js-rmp-vote-count, .js-rmp-results-widget--' + postID + ' .js-rmp-vote-count');
+=======
+    this.avgRatingContainer = document.querySelector(this.widgetContainer + '.js-rmp-avg-rating ' /* + ', .js-rmp-results-widget--' + postID + ' .js-rmp-avg-rating'*/);
+    this.voteCountContainer = document.querySelector(this.widgetContainer + '.js-rmp-vote-count' /*+ ', .js-rmp-results-widget--' + postID + ' .js-rmp-vote-count'*/);
+>>>>>>> 538c731 (perf(modules): fixed ajax call and added condition on existed items)
     this.noVotesContainer = document.querySelector(this.widgetContainer + '.js-rmp-not-rated');
     this.resultsTextContainer = document.querySelector(this.widgetContainer + '.js-rmp-results');
     this.ratingIcons = document.querySelectorAll(this.widgetContainer + '.js-rmp-rating-icon');
@@ -38,6 +43,7 @@ class LoadResults {
     }
 
     if(this.avgRatingContainer) {
+<<<<<<< HEAD
       this.avgRatingContainer.forEach((item) => {
         item.textContent = this.avgRating;
       })
@@ -52,6 +58,21 @@ class LoadResults {
     this.highlightIcons();
     this.noVotesContainer?.classList?.add('rmp-rating-widget__not-rated--hidden');
     this.resultsTextContainer?.classList?.remove('rmp-rating-widget__results--hidden');
+=======
+      this.avgRatingContainer.textContent = this.avgRating;
+    }
+    if(this.voteCountContainer) {
+      this.voteCountContainer.textContent = this.voteCount;
+    }
+    this.toneDownIcons();
+    this.highlightIcons();
+    if(this.noVotesContainer) {
+      this.noVotesContainer.classList.add('rmp-rating-widget__not-rated--hidden');
+    }
+    if(this.resultsTextContainer) {
+      this.resultsTextContainer.classList.remove('rmp-rating-widget__results--hidden');
+    }
+>>>>>>> 538c731 (perf(modules): fixed ajax call and added condition on existed items)
     this.msgContainer.textContent = this.tnxMsg;
 
     let socialWidget = new SocialWidget(this.widgetContainer, this.rating);
