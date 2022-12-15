@@ -53,8 +53,8 @@ export function re_init() {
   init_rate_my_post();
 }
 
-// Init single rating widget
-export function init_single_widget(postID, ajaxLoad) {
+// Init single rate my post
+export function init_single_rate_my_post(postID, ajaxLoad) {
   if(ajaxLoad) {
     let ajaxLoad = new AjaxLoad(postID);
   }
